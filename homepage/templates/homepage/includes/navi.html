@@ -1,0 +1,47 @@
+{% load static %}
+<header class="header">
+    <nav class="nav">
+        <div class="rajas"><a href="#"><img class="logoimg" src="{% static 'homepage/images/rajaslogo.png' %}" alt=""></a></div>
+        <ul class="navmenu">
+            <div class="navitem1">
+                <li class="navitem"><a href="{% url 'prodsuit' %}" class="navlink">SUITS</a></li>
+                <li class="navitem"><a href="{% url 'prodsaree' %}" class="navlink">SAREE</a></li>
+                <li class="navitem"><a href="#" class="navlink">FABRIC</a></li>
+            </div>
+            <div class="navitem2">
+                <li class="navitem"><a href="#" class="navlink"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                <li class="navitem"><a href="#" class="navlink">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"><span id="cart">(0)</span></i></a>
+                </li>
+            </div>
+        </ul>
+        <div class="search"><input class="searchbar" type="text" placeholder="search"></div>
+        <div class="magsearch">
+            <input class="search" type="text" placeholder="search">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+        <div class="ham">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </nav>
+</header>
+
+<script>
+    const navel=document.querySelector('.navmenu');
+    const hamel=document.querySelector('.ham');
+    const sear=document.querySelector('.magsearch');
+    const sea=document.querySelector('.search');
+
+    sear.addEventListener('click',() =>{
+        sear.classList.toggle('sear--open');
+        sea.classList.toggle('sea--open');
+    });
+
+    hamel.addEventListener('click',() =>{
+        navel.classList.toggle('nav--open');
+        hamel.classList.toggle('ham--open');
+    });
+
+</script>

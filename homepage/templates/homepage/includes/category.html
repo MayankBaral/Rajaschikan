@@ -1,0 +1,20 @@
+{% load static %}
+<div class="bodycat">
+        <img class="bgcat" src="{% static 'homepage/images/bg_img1.png' %}" alt="">
+        <img src="{% static 'homepage/images/catmob.png' %}" alt="" class="bgcatmob">
+        <div class="category">CATEGORY</div>
+        <div class="catscroll">
+            <div class="cate">
+                <a class="cate" href="{% url 'prodsuit' %}"><div class="imcat"><img class="imca" src="{{ cat.0.cat_image.url }}" alt=""></div>
+                <button class="catbt" type="button">SUITS</button></a>
+            </div>
+            <div class="cate">
+                <a class="cate" href="{% url 'prodsaree' %}"><div class="imcat"><img class="imca" src="{{ cat.1.cat_image.url }}" alt=""></div>
+                <button class="catbt" type="button">SAREE</button></a>
+            </div>
+            <div class="cate">
+                <a class="cate" href="{% url 'prodfabric' %}"><div class="imcat"><img class="imca" src="{{ cat.2.cat_image.url }}" alt=""></div>
+                <button class="catbt" type="button">FABRICS</button></a>
+            </div>
+        </div>
+</div>

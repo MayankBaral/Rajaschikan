@@ -1,0 +1,38 @@
+{% load static %}
+<div class="hero-body">
+        <div class="hero-image">
+            <img class="blimage" src="{{ blgs.0.blog_image.url }}" alt="">
+            <div class="hero-text" id="hero-text1">
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img class="blimage" src="{{ blgs.1.blog_image.url }}"  alt="">
+            <div class="hero-text" id="hero-text2">
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img class="blimage" src="{{ blgs.2.blog_image.url }}"  alt="">
+            <div class="hero-text" id="hero-text3">
+            </div>
+        </div>
+</div>
+   <script>
+    let slideindex = 0;
+    showslide();
+
+    function showslide() {
+        let i;
+        let slides = document.getElementsByClassName('hero-image');
+        for (i=0; i<slides.length; i++) {
+            slides[i].style.display='none';
+        }
+        slideindex++;
+        if(slideindex>slides.length){
+            slideindex = 1;
+        }
+        slides[slideindex - 1].style.display='block';
+        setTimeout(showslide,5000);
+    }
+</script>

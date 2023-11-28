@@ -1,0 +1,210 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<div class="cart-body">
+    <div class="cart-left-box" id="cartitems">
+        
+    </div>
+    <div class="cart-right-box">
+        <div class="cart-bill">
+            <div class="head-total">Cart Total</div>
+            <div class="sub">
+                <p>Sub Total</p>
+                <p id="subtotal">Rs.0</p>
+            </div>
+            <div class="sub">
+                <p class="shippingcharge">Shipping <span class="codcharge">(For COD Rs.100 extra)</span> </p>
+                <p>Free Shipping</p>
+            </div>
+            <hr class="linetotal">
+            <div class="sub">
+                <p>TOTAL</p>
+                <p id="grandtotal">Rs.0</p>
+            </div>
+        </div>
+        <div class="formusershipping">
+            <h2 class="shiphead">Create Your Account</h2>
+            <form method="POST" class="usershippingform" id="order-form">
+                <input type="hidden" name="cart_data" id="cart-data" value="">
+                <input type="hidden" name="total" id="order-total" value="0">
+                <input type="hidden" name="grandtotal" id="grand-total" value="0">
+                {% csrf_token %} 
+                
+                {{ s_form|crispy }}
+          
+                <button class="registerbt" id="place-order-btn" type="submit">Proceed Order</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+        if(localStorage.getItem('cart')==null){
+            var cart = {};
+            }
+        else{
+            cart = JSON.parse(localStorage.getItem('cart'));
+            document.getElementById('cart').innerHTML = Object.keys(cart).length; 
+        }
+
+        function updateCartData() {
+            const cartDataInput = document.getElementById('cart-data');
+            const cart = JSON.parse(localStorage.getItem('cart')) || {};
+            cartDataInput.value = JSON.stringify(cart);
+        }
+
+        function updatequantity(id,increament){
+            if(cart[id]){
+                cart[id][0] += increament;
+
+                if(cart[id][0]<1){
+                    cart[id][0]=1
+                }
+                const quantityElement = document.getElementById('quant' + id);
+                quantityElement.textContent = cart[id][0];
+
+                const prices = cart[id][2];
+                const total = cart[id][0] * prices;
+                const totalElement = document.getElementById('total' + id);
+                totalElement.textContent = `Rs. ${total}`;
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+                calculateTotal();
+            }
+        };
+
+        function calculateTotal() {
+            let subtotal = 0;
+
+            // Iterate through all items in the cart and sum up the prices
+            for (let item in cart) {
+                let quantity = cart[item][0];
+                let prices = cart[item][2];
+                subtotal += quantity * prices;
+                console.log(`Item: ${item}, Quantity: ${quantity}, Price: ${prices}`);
+            }
+            console.log(`Subtotal: ${subtotal}`);
+            // Update the total in the template
+            const subtotalElement = document.getElementById('subtotal');
+            subtotalElement.textContent = `Rs. ${subtotal}`;
+
+            const shippingCharges = 0; // For example, free shipping
+
+            // Update the grand total in the template
+            const grandTotal = subtotal + shippingCharges;
+            console.log(`Grand Total: ${grandTotal}`);
+            const grandTotalElement = document.getElementById('grandtotal');
+            grandTotalElement.textContent = `Rs. ${grandTotal}`;
+
+            document.getElementById('order-total').value = grandTotal;
+            document.getElementById('grand-total').value = grandTotal;
+        }
+
+        function removeItem(itemId) {
+        // Find the index of the item in the cart
+            const index = Object.keys(cart).indexOf(itemId);
+            // Remove the item from the cart using the splice method
+            if (index !== -1) {
+                delete cart[itemId];
+                // You may also want to update the cart in local storage or perform any other necessary actions
+            }
+            updateCartData();
+            // Update the cart display or perform other actions as needed
+            updateCartDisplay();
+        };
+
+        document.getElementById('cartitems').addEventListener('click',function(event){
+            if(event.target.tagName=='BUTTON'&& event.target.getAttribute('data-action')=='remove'){
+                removeItem(event.target.getAttribute('data-item-id'));
+            }
+        });
+
+
+        function updateCartDisplay() {
+            // Implement any logic to update the cart display here
+            // For example, you can re-render the entire cart with the updated data
+            $('#cartitems').empty();
+            
+            for (item in cart){
+                let quantity = cart[item][0];
+                let names = cart[item][1];
+                let prices = cart[item][2];
+                let category = cart[item][3];
+                let size = cart[item][4];
+                let imageURLmain = cart[item][5];
+                let idstr = item;
+                item_data=[quantity,size]
+                mystr = `<div class="cart-card">
+                            <div class="cartimg-box"><img class="img-cart" src="${imageURLmain}" alt=""></div>
+                            <div class="prod-desc">
+                                <p class="head-cart">${names}</p>
+                                <p class="cat-cart">${category}</p>
+                                <p class="price-prod">Rs. ${prices}</p>
+                                <div class="updown">
+                                    <p class="quant-cart" id="quant${idstr}">${quantity}</p>
+                                    <div class="btnupdown">
+                                        <button class="quantbtn" type="button" onclick="updatequantity('${idstr}', 1)"><i class="fa fa-caret-up" aria-hidden="true"></i></button>
+                                        <button class="quantbtn" type="button" onclick="updatequantity('${idstr}', -1)"><i class="fa fa-caret-down" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                                <button type="button" data-action="remove" data-item-id="${idstr}" class="removebtn">Remove</button>
+                            </div>
+                            <div class="prod-desc2">
+                                <p class="head-cart">TOTAL</p>
+                                <p class="price-prod" id="total${idstr}">Rs. ${prices * quantity}</p>
+                            </div>
+                        </div>`
+                $('#cartitems').append(mystr);
+            };
+            // Update the local storage with the modified cart
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            updateCartData();
+            calculateTotal();
+            // Implement any additional logic as needed
+        }
+
+        for (item in cart){
+            let prices = cart[item][2];
+            let names = cart[item][1];
+            let quantity = cart[item][0];
+            let imageURLmain = cart[item][5];
+            let idstr = item;
+            let category = cart[item][3];
+            let size = cart[item][4];
+            mystr = `<div class="cart-card">
+                        <div class="cartimg-box"><img class="img-cart" src="${imageURLmain}" alt=""></div>
+                        <div class="prod-desc">
+                            <p class="head-cart">${names}</p>
+                            <p class="cat-cart">${category}</p>
+                            <p class="size">Size: ${size}</p>
+                            <p class="price-prod">Rs. ${prices}</p>
+                            <div class="updown">
+                                <p class="quant-cart" id="quant${idstr}">${quantity}</p>
+                                <div class="btnupdown">
+                                    <button class="quantbtn" type="button" onclick="updatequantity('${idstr}', 1)"><i class="fa fa-caret-up" aria-hidden="true"></i></button>
+                                    <button class="quantbtn" type="button" onclick="updatequantity('${idstr}', -1)"><i class="fa fa-caret-down" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                            <button type="button" data-action="remove" data-item-id="${idstr}" class="removebtn">Remove</button>
+                        </div>
+                        <div class="prod-desc2">
+                            <p class="head-cart">TOTAL</p>
+                            <p class="price-prod" id="total${idstr}">Rs. ${prices * quantity}</p>
+                        </div>
+                    </div>`
+            $('#cartitems').append(mystr);
+        };
+
+        document.getElementById('place-order-btn').addEventListener('click', function () {
+            // Update the cart data before submitting the form
+            updateCartData();
+
+            // Continue with form submission
+            const orderForm = document.getElementById('order-form');
+            orderForm.submit();
+        });
+        
+        calculateTotal();
+</script>

@@ -1,0 +1,31 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<div class="profilebody">
+<div class="profileinfo">
+    <p class="user-name">Hello! {{user_profile.users.username}}</p>
+    <p class="useremail">{{user.email}}</p>
+    <a class="logoutlink" href="{% url 'logout' %}"><button class="logoutbtn" type="button">Logout</button></a>
+</div>
+<div class="information">
+    <div class="profiledetail">
+        <p class="headtitle">PERSONAL DETAILS</p>
+        <form method="post" class="customform">
+            {% csrf_token %} 
+            
+            {{ p_form|crispy }}
+      
+            <button class="editbtn" type="submit">SAVE</button>
+        </form>
+    </div>
+    <div class="shipping">
+        <p class="headtitle">SHIPPING DETAILS</p>
+        <form method="post" class="customform">
+            {% csrf_token %} 
+            
+            {{ su_form|crispy }}
+      
+            <button class="editbtn1" type="submit">SAVE</button>
+        </form>
+    </div>
+</div>
+</div>

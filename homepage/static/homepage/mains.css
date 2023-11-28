@@ -1,0 +1,13 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    height: auto;
+    overflow-x: hidden !important;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+}

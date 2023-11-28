@@ -1,0 +1,33 @@
+.hero-body{
+  display: flex;
+  flex-direction: column;
+  width: 102%;
+  height: 100vh;
+  position: relative;
+  align-items: center;
+  top: 20px;
+}
+.hero-image{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+.blimage{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  animation: fade 12s ease-in-out infinite alternate;
+}
+@media screen and (max-width: 1200px) {
+  .hero-body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 35vh;
+    position: relative;
+    align-items: center;
+  }
+}

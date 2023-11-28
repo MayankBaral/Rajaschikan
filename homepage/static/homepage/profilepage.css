@@ -1,0 +1,130 @@
+.profilebody{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    gap: 20px;
+    padding: 80px 10px;
+    justify-content: center;
+}
+.profileinfo{
+    display: flex;
+    flex-direction: column;
+    padding: 0 7%;
+    gap: 10px;
+}
+.information{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    gap: 20%;
+    padding: 0 20px;
+    justify-content: center;
+}
+.profiledetail{
+    width: 35%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 20px;
+    border-style: groove;
+    border-radius: 15px;
+    box-shadow: 8px 8px 10px lightgray;border-style: groove;
+}
+.shipping{
+    width: 35%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 20px;
+    border-style: groove;
+    border-radius: 15px;
+    box-shadow: 8px 8px 10px lightgray;
+}
+.editbtn{
+    margin: 10px 0;
+    font-size: 18px;
+    width: 25%;
+    height: 30px;
+    border-radius: 10px;
+    border: 0;
+    color: white;
+    background-image: linear-gradient(#660e04,#DC9563);
+    box-shadow: 5px 5px 10px rgb(198, 198, 198);
+}
+.editbtn1{
+    margin: 10px 0;
+    font-size: 18px;
+    width: 25%;
+    height: 30px;
+    border-radius: 10px;
+    border: 0;
+    color: white;
+    background-image: linear-gradient(#660e04,#DC9563);
+    box-shadow: 5px 5px 10px rgb(198, 198, 198);
+}
+.logoutlink{
+    width: 25%;
+}
+.logoutbtn{
+    cursor: pointer;
+    margin: 10px 0;
+    font-size: 18px;
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    border: 0;
+    color: white;
+    background-image: linear-gradient(#660e04,#DC9563);
+    box-shadow: 5px 5px 10px rgb(198, 198, 198);
+}
+.headtitle{
+    width: 100%;
+    height: 40px;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background-image: linear-gradient(#8C1507,#DC9563);
+    text-align: center;
+    border-radius: 15px 15px 0 0;
+    padding: 6px;
+}
+.containdetail{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 20px 20px;
+}
+.user-name{
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 6px 5px 4px rgb(193, 193, 193);
+}
+.useremail{
+    font-size: 22px;
+    font-style: italic;
+}
+
+@media screen and (max-width: 700px) {
+    .profilebody{
+        display: flex;
+        flex-direction: column;
+    }
+    .information{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        gap: 15px;
+    }
+    .profiledetail{
+        width: 98%;
+    }
+    .shipping{
+        width: 98%;
+    }
+    .logoutlink{
+        width: 40%;
+    }
+}

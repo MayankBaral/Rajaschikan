@@ -1,0 +1,55 @@
+.formbox{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    position: relative;
+    top: 20px;
+    box-shadow: 10px 10px 8px darkgray;
+    padding: 0 0 35px;
+}
+.loginhead{
+    font-size: 25px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, black, #DC9563);
+    color: white;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    padding: 5px;
+}
+.customform2{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    padding: 0 20px;
+}
+.form-group label{
+    font-size: 18px;
+}
+.form-group small{
+    font-size: 14px;
+    color: rgb(101, 101, 101);
+}
+.form-group small li{
+    margin-left: 20px;
+}
+.customform2 input{
+    width: 100%;
+    height: 25px;
+    margin: 2px 0 8px;
+}
+.invalid-feedback strong{
+    background-color: antiquewhite;
+    color: red;
+    padding: 0 20px;
+}
+
+@media screen and (max-width: 700px){
+    .formbox{
+        width: 95%;
+        height: auto;
+    }
+}

@@ -1,0 +1,32 @@
+.logout{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    gap: 30px;
+    top: 30px;
+    width: 100vw;
+    height: 100vh;
+}
+.headlogout{
+    font-size: 80px;
+    text-align: center;
+    padding: 10px;
+    background: -webkit-linear-gradient(#8C1507,#DD6C18);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+.loginlink2{
+    font-size: 40px;
+}
+.loginlink{
+    width: fit-content;
+    background-image: linear-gradient(to right, black, #DD6C18);
+    padding: 5px 20px;
+    border-radius: 15px 0 15px 0;
+    box-shadow: 10px 10px 8px darkgray;
+    font-weight: bold;
+    color: white;
+}

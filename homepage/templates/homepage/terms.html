@@ -1,0 +1,13 @@
+{% extends 'homepage/basic.html' %}
+{% load static %}
+
+{% block content %}
+    {% for p in Policy %}
+        <div class="storybody">
+            <section><p class="storyhead">{{ p.title }}</p></section>
+            <section class="storycontain">
+                {{ p.terms_content }}
+            </section>
+        </div>
+    {% endfor %}
+{% endblock %}

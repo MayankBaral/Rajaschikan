@@ -1,0 +1,167 @@
+.probody{
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    position: relative;
+    top: 50px;
+    margin-bottom: 100px;
+}
+.prodcon{
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.probod{
+    width: 96%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 30px;
+    padding: 40px 0;
+}
+.procard{
+    border-style: groove;
+    width: fit-content;
+    height: fit-content;
+    padding: 15px;
+    transition: all 0.5s ease;
+    font-weight: bold;
+}
+.proimage{
+    width: 280px;
+    height: 380px;
+    object-fit: cover;
+}
+.proname{
+    color: black;
+    font-size: 25px;
+    padding-bottom: 5px;
+}
+.procategory{
+    padding-bottom: 5px;
+    margin: 0 0 10px 0;
+}
+.btcart{
+    cursor: pointer;
+    color: aliceblue;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgb(84, 0, 107);
+    border: 0;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    height: 40px;
+}
+.overlaybg{
+    width: 100%;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 0.226);
+    z-index: 444;
+    position: absolute;
+}
+.sareehead{
+    width: 100vw;
+    height: 150px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+.prodhead{
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    font-size: 50px;
+    font-weight: bolder;
+    color: white;
+    z-index: 555;
+}
+.sareebg{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    position: absolute;
+}
+.saree{
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    font-size: 50px;
+    font-weight: bolder;
+    color: white;
+    z-index: 999;
+}
+.sort{
+    position: relative;
+    left: 32%;
+    margin: 20px 0 0 0;
+}
+.sortbt{
+    width: 100%;
+    padding: 5px 10px;
+    border-width: 2px;
+    border-color: rgb(173, 173, 173);
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+    z-index: 9;
+}
+#sorticon{
+    margin: 0 2px 0 85px;
+}
+.dropmenu{
+    display: none;
+    width: 100%;
+    position: absolute;
+    background-color: rgb(206, 206, 206);
+    padding: 10px 0;
+    margin-top: 1px;
+    transition: 0.5s ease-in-out;
+    z-index: 666;
+    border-radius: 0 0 8px 8px;
+}
+.dropoption{
+    display: block;
+    text-decoration: none;
+    color: rgb(39, 2, 73);
+    font-weight: bold;
+    padding: 10px 8px;
+}
+.dropoption:hover{
+    background-color: rgb(225, 225, 225);
+}
+.drop--active{
+    display: block;
+}
+.procard:hover{
+    scale: 1.1;
+}
+
+@media screen and (max-width: 700px) {
+    .sort{
+        left: 26%;
+    }
+    .probod{
+        width: 98%;
+        height: auto;
+        display: flex;
+        gap: 2px;
+    }
+    .procard{
+        padding: 12px 6px;
+    }
+    .proimage{
+        width: 170px;
+        height: 210px;
+    }
+    .proname{
+        font-size: 20px;
+    }
+}

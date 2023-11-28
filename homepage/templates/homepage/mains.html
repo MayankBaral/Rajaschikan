@@ -1,0 +1,15 @@
+<!--This is the main page here we have to load all the different html pages or components in this place-->
+{% extends 'homepage/basic.html' %}
+{% load static %}
+
+{% block content %}
+
+    {% include 'homepage/includes/blog.html' %}
+
+    {% include 'homepage/includes/category.html' %}
+
+    {% include 'homepage/includes/bestseller.html' %}
+
+    {% include 'homepage/includes/about.html' %}
+
+{% endblock %}

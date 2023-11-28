@@ -1,0 +1,218 @@
+.cart-body{
+    position: relative;
+    top: 30px;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100%;
+    justify-content: space-around;
+    margin-bottom: 100px;
+}
+.cart-left-box{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    height: fit-content;
+    gap: 40px;
+}
+.cart-card{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: fit-content;
+    gap: 30px;
+    padding: 10px;
+    border-style: groove;
+    box-shadow: 5px 5px 10px lightgray;
+}
+.cartimg-box{
+    max-width: 30%;
+    height: 190px;
+    display: flex;
+    justify-content: center;
+}
+.img-cart{
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.prod-desc{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.prod-desc2{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 0 0 20%;
+}
+.head-cart{
+    font-size: 25px;
+    font-weight: bold;
+}
+.cat-cart{
+    font-size: 20px;
+}
+.price-prod{
+    font-size: 20px;
+    font-weight: bold;
+}
+.codcharge{
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+}
+.shippingcharge{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.quantbtn{
+    display: flex;
+    width: fit-content;
+    padding: 0 3px;
+    align-items: center;
+    gap: 12px;
+}
+.updown{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 24px;
+    gap: 6px;
+}
+
+.cart-right-box{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: fit-content;
+    align-items: center;
+    padding: 0 0 30px;
+    gap: 30px;
+    
+}
+.cart-bill{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+    background-color: rgb(248, 242, 230);
+    box-shadow: 10px 10px 10px lightgray;
+    padding: 0 0 30px 0;
+}
+.head-total{
+    font-size: 25px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, black, #DC9563);
+    color: white;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    padding: 5px;
+}
+.sub{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 20px;
+    padding: 0 20px;
+}
+.linetotal{
+    width: 90%;
+}
+.formusershipping{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+    background-color: rgb(248, 242, 230);
+    box-shadow: 10px 10px 10px lightgray;
+    padding: 0 0 30px 0;
+}
+.shiphead{
+    font-size: 25px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, black, #DC9563);
+    color: white;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    padding: 5px;
+}
+.usershippingform{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 8px;
+}
+.form-group label{
+    font-size: 18px;
+}
+.form-group small{
+    font-size: 14px;
+    color: rgb(101, 101, 101);
+}
+.form-group small li{
+    margin-left: 20px;
+}
+.usershippingform input{
+    width: 100%;
+    height: 25px;
+    margin: 2px 0 8px;
+}
+.invalid-feedback strong{
+    background-color: antiquewhite;
+    color: red;
+}
+.removebtn{
+    width: 52%;
+    padding: 8px;
+    border-radius: 20px;
+    border: 0;
+    background-image: linear-gradient(to right,black,#DC9563);
+    font-weight: bold;
+    color: white;
+    font-size: 16px;
+    box-shadow: 5px 5px 5px darkgray;
+}
+
+@media screen and (max-width: 700px) {
+    .cart-body{
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .cart-left-box{
+        width: 95%;
+    }
+    .cart-card{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .head-cart{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .cat-cart{
+        font-size: 15px;
+    }
+    .cartimg-box{
+        max-width: 100%;
+        height: 180px;
+    }
+    .prod-desc2{
+        margin: 0;
+    }
+    .cart-right-box{
+        width: 95%;
+    }
+    .removebtn{
+        width: 76%;
+    }
+}   

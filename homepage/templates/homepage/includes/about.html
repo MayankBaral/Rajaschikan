@@ -1,0 +1,16 @@
+{% load static %}
+<div class="abbody">
+    <img class="bgabout" src="{% static 'homepage/images/bg_img2.png' %}" alt="">
+    <h1 class="about">ABOUT RAJAS</h1>
+    <div class="abcontain">
+        {% for a in about %}
+            <div class="abtext">
+                <p class="abtexthead">{{ a.title }}</p>
+                <p class="abtextbod">
+                    {{ a.about }}
+                </p>
+            </div>
+        {% endfor %}
+        <img class="abim" src="{% static 'homepage/images/rajaslogo.png' %}" alt="">
+    </div>
+</div>

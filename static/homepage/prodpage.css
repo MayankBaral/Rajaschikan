@@ -1,0 +1,141 @@
+
+.probody{
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    position: relative;
+    top: 20px;
+}
+.prodcon{
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.probod{
+    width: 91%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 25px;
+    padding: 40px 20px;
+}
+.procard{
+    width: fit-content;
+    height: fit-content;
+}
+.proimage{
+    width: 280px;
+    height: 380px;
+}
+.proname{
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+.proprice{
+    padding-bottom: 5px;
+}
+.btcart{
+    cursor: pointer;
+    color: aliceblue;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgb(84, 0, 107);
+    border: 0;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    height: 40px;
+    margin: 5px 0 0;
+}
+.overlaybg{
+    width: 100%;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 0.226);
+    z-index: 444;
+    position: absolute;
+}
+.sareehead{
+    width: 100vw;
+    height: 150px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+.sareebg{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    position: absolute;
+}
+.prodhead{
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    font-size: 50px;
+    font-weight: bolder;
+    color: white;
+    z-index: 555 !important;
+}
+.sort{
+    position: relative;
+    left: 32%;
+    margin: 20px 0 0 0;
+}
+.sortbt{
+    padding: 5px 10px;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: rgb(173, 173, 173);
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+    z-index: 9;
+}
+#sorticon{
+    margin: 0 2px 0 85px;
+}
+.dropmenu{
+    display: none;
+    position: absolute;
+    background-color: rgb(206, 206, 206);
+    padding: 10px 10px;
+    margin-top: 1px;
+    transition: 0.5s ease-in-out;
+}
+.dropoption{
+    display: block;
+    text-decoration: none;
+    color: rgb(39, 2, 73);
+    font-weight: bold;
+    padding: 10px 0;
+}
+.drop--active{
+    display: block;
+}
+
+@media screen and (max-width: 700px) {
+    .sort{
+        left: 26%;
+    }
+    .probod{
+        width: 100vw;
+        height: auto;
+        display: flex;
+        gap: 20px;
+    }
+    .proimage{
+        width: 170px;
+        height: 210px;
+    }
+    .proname{
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,38 @@
+{% load static %}
+<div class="probody">
+    <div class="prodcon">
+        <div class="sareehead">
+            <div class="overlaybg"></div>
+            <img class="sareebg" src="{{banner.imageURL}}" alt="">
+            <p class="prodhead">SUITS</p>
+        </div>
+        <div class="sort"><button class="sortbt" type="button">SORT<i id="sorticon" class="fa fa-caret-down" aria-hidden="true"></i></button>
+            <div class="dropmenu">
+                <a class="dropoption" href="#">Best-Seller</a>
+                <a class="dropoption" href="#">Price: High to Low</a>
+                <a class="dropoption" href="#">Price: Low to High</a>
+            </div>
+        </div>
+        <div class="probod">
+            {% for b in best %} 
+                <a href="{% url 'product' b.product.productId %}"><div class="procard">
+                    <img id="img{{ b.product.prodcutId }}" class="proimage" src="{{ b.product.imageURLmain }}" alt="">
+                    <p id="name{{ b.product.productId }}" class="proname">{{ b.product.name }}</p></a>
+                    <p class="proprice">Rs. <span id="price{{ b.product.productId }}">{{ b.product.price }}</span></p>
+                    <p id="category{{ b.product.productId }}" class="procategory">Category: {{ b.product.category }}</p>
+                    <button id="{{ b.product.productId }}" class="btcart cart" type="button" data-image-url="{{ b.product.imageURLmain }}" >Add to Cart</button>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+    const drop = document.querySelector('.sortbt');
+    const dropme = document.querySelector('.dropmenu');
+
+    drop.addEventListener('click',() => {
+        dropme.classList.toggle('drop--active')
+    });
+
+</script>

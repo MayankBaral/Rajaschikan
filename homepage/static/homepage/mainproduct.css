@@ -1,0 +1,238 @@
+.mainprodbody{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    top: 45px;
+    gap: 30px;
+    margin-bottom: 15rem;
+}
+.imcontain{
+    width: 45%;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: flex-start;
+}
+.sideimage{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 18%;
+    height: fit-content;
+}
+.primg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.changeim{
+    width: 100%;
+    height: 40%;
+    cursor: pointer;
+    border: 0;
+    object-fit: contain;
+}
+.mainimage{
+    width: 100%;
+    height: fit-content;
+    object-fit: cover;
+    display: flex;
+    overflow: scroll;
+}
+.mimg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.proabout{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: fit-content;
+    gap: 20px;
+}
+.namep{
+    font-size: 35px;
+    font-weight: bold;
+}
+.pricep{
+    font-size: 25px;
+    font-weight: bold;
+}
+.line{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    color: gray;
+}
+.dline{
+    font-size: 10px;
+    color: gray;
+}
+.desc{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: fit-content;
+    font-size: 18px;
+}
+.descontain{
+    font-style: italic;
+}
+.specdetail{
+    font-style: italic;
+    font-weight: lighter;
+}
+.deshead{
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+}
+.spec{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 500px;
+    height: fit-content;
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+.des{
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+}
+.stock{
+    background-color: green;
+    width: fit-content;
+    padding: 10px 20px;
+    color: white;
+    font-size: 22px;
+    margin: 20px 0 0 0;
+    box-shadow: 5px 5px 10px rgb(164, 164, 164);
+}
+.outofstock{
+    background-color: red;
+    width: fit-content;
+    padding: 10px 20px;
+    color: white;
+    font-size: 22px;
+    margin: 20px 0 0 0;
+    box-shadow: 5px 5px 10px rgb(164, 164, 164);
+}
+.availsize{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+.btcart2{
+    cursor: pointer;
+    color: aliceblue;
+    font-weight: bold;
+    background-color: rgb(220, 121, 46);
+    border: 0;
+    padding: 10px;
+    border-radius: 10px;
+    width: 500px;
+    font-size: 22px;
+    height: 50px;
+    box-shadow: 5px 5px 10px rgb(164, 164, 164);
+}
+.btbuy{
+    cursor: pointer;
+    color: aliceblue;
+    font-weight: bold;
+    background-image: linear-gradient(#DD6C18,#8C1507);
+    border: 0;
+    padding: 10px;
+    border-radius: 10px;
+    width: 500px;
+    font-size: 22px;
+    height: 50px;
+    box-shadow: 5px 5px 10px rgb(164, 164, 164);
+}
+.mainimage::-webkit-scrollbar{
+    display: none;
+}
+.sizechartlink{
+    cursor: pointer;
+    background-color: white;
+    border: 0;
+    color: orangered;
+    font-weight: bold;
+}
+.sizechart{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.sizeimage{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 35px 20px 20px;
+}
+.chartimage{
+    position: absolute;
+    top: 30%;
+    left: 31%;
+}
+.closebtn{
+    position: absolute;
+    top: 15%;
+    right: 3%;
+    background-color: #333333;
+    color: white;
+    font-size: 20px;
+    border: 0;
+    cursor: pointer;
+}
+@media screen and (max-width: 1000px) {
+    .mainprodbody{
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .sideimage{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: fit-content;
+        gap: 10px;
+    }
+    .imcontain{
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .mainimage{
+        width: 100vw;
+        height: 120vw;
+        
+    }
+    .proabout{
+        width: 95%;
+    }
+    .spec{
+        width: 100vw;
+    }
+    .btbuy{
+        width: 100%;
+    }
+    .btcart2{
+        width: 100%;
+    }
+    .desc{
+        width: 100%;
+    }
+}

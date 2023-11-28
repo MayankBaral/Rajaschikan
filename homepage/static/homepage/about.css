@@ -1,0 +1,90 @@
+.abbody{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 50px;
+    height: 100% !important;
+    justify-content: center;
+    align-items: center;
+}
+.about{
+    font-size: 50px;
+    text-align: center;
+    padding: 10px;
+    background: -webkit-linear-gradient(#8C1507,#DD6C18);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bolder;
+    z-index: 555;
+}
+.bgabout{
+    position: absolute;
+    width: 102%;
+    height: 900px;
+    object-fit: cover;
+    z-index: -111;
+}
+.abcontain{
+    width: 98%;
+    height: 845px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 50px 0 0 0 ;
+    
+}
+.abim{
+    width: 50%;
+    height: 88%;
+    position: relative;
+    left: 5%;
+}
+.abtext{
+    position: relative;
+    width: 50%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    left: 4%;
+    gap: 20px;
+}
+.abtexthead{
+    font-size: 40px;
+    height: 80px;
+    font-weight: bold;
+    position: relative;
+    color: aliceblue;
+    background-image: linear-gradient(#8C1507,#DD6C18);
+    padding: 18px 0;
+    text-align: center;
+}
+.abtextbod{
+    font-size: 20px;
+    font-style: italic;
+}
+@media screen and (max-width: 1000px) {
+    .abbody{
+        width: 100%;
+        height: auto;
+    }
+    .abtext{
+        width: 100%;
+        left: 0;
+    }
+    .abcontain{
+        display: flex;
+        flex-direction: column;
+        width: 92%;
+        gap: 30px;
+    }
+    .abim{
+        width: 100%;
+        height: auto;
+        position: relative;
+        left: 0%;
+    }
+    .abtexthead{
+        padding: 10px 8px;
+    }
+}

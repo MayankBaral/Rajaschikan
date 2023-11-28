@@ -1,0 +1,76 @@
+    {% load static %}
+    <div class="mainprodbody">
+            <div class="imcontain">
+                <div class="sideimage">
+                    <button onclick="changee('{{ products.imageURLmain }}')" class="changeim"><img class="primg" src="{{products.imageURLmain}}" alt=""></button>
+                    <button onclick="changee('{{products.imageURL1}}')" class="changeim"><img class="primg" src="{{products.imageURL1}}" alt=""></button>
+                    <button onclick="changee('{{products.imageURL2}}')" class="changeim"><img class="primg" src="{{products.imageURL2}}" alt=""></button>
+                    <button onclick="changee('{{products.imageURL3}}')" class="changeim"><img class="primg" src="{{products.imageURL3}}" alt=""></button>
+                    <button onclick="changee('{{products.imageURL3}}')" class="changeim"><img class="primg" src="{{products.imageURL3}}" alt=""></button>
+                </div>
+                <div class="mainimage">
+                    <img id="img{{ products.productId }} bannerimg" class="mimg {{ products.productId }}" src="{{products.imageURLmain}}" alt="">
+                </div>
+            </div>
+            <div class="proabout">
+                <div id="name{{ products.productId }}" class="namep">{{ products.name }}</div>
+                <div class="pricep">Rs <span id="price{{ products.productId }}">{{ products.price }}</span></div>
+                <div class="desc">
+                    <p class="deshead">Description:</p>
+                    <p class="descontain">{{ products.product_description }}</p>
+                </div>
+                {% if products.category == 'Kurti' %}
+                    <div class="sizes">
+                        <p class="availsize">Available Sizes:</p>
+                        {% for size in kurti_sizes %}
+                            <label>
+                                <input required type="radio" name="size" value="{{ size }}">
+                                {{ size }}
+                            </label>
+                        {% endfor %}
+                    </div>
+                    <div class="sizechart">
+                        <p>Here is our Size chart -</p>
+                        <button class="sizechartlink" onclick="opensize()">SIZE CHART</button>
+                        <section id="size" class="sizeimage">
+                            <div class="overlay">
+                            <button class="closebtn" type="button" onclick="closesize()">X</button>
+                            <img class="chartimage" src="{% static 'homepage/images/size.jpg' %}" alt="">
+                            </div>
+                        </section>
+                    </div>
+                {% endif %}
+                <div class="line"><i class="fa fa-diamond dline" aria-hidden="true"></i><hr><i class="fa fa-diamond dline" aria-hidden="true"></i></div>
+                <div class="spec">
+                    <p class="des">Specifications:</p>
+                    <p id="category{{ products.productId }}" class="fabric">CATEGORY :<span class="specdetail">{{ products.category }}</span></p>
+                    <p class="fabric">FABRIC : <span class="specdetail">{{ products.fabrics }}</span></p>
+                    <p class="emboidery">EMBROIDERY : <span class="specdetail">{{ products.embroidery }}</span></p>
+                    <p class="emboidery_color">EMBROIDERY COLOR : <span class="specdetail">{{ products.embroidery_color }}</span></p>
+                    <p class="dyeing">DYEING : <span class="specdetail">{{ products.dyeing }}</span></p>
+                    <p class="wash">WASH : <span class="specdetail">{{ products.washing_instrutions }}</span></p>
+                    <p class="colour">COLOR : <span class="specdetail">{{ products.color}}</span></p>
+                </div>
+                {% if products.in_stock %}
+                    <p class="stock">InStock</p>
+                    <button id="{{ products.productId }}" class="btcart2 cart" type="button" data-image-url="{{ products.imageURLmain }}" >Add to Cart</button>
+                    <button id="{{ products.productId }}" class="btbuy buy" type="button" data-image-url="{{ products.imageURLmain }}">Buy Now</button>
+                {% else %}
+                    <p class="outofstock">Out of Stock</p>
+                    <button class="btcart2 cart" type="button">Add to Cart</button>
+                    <button class="btbuy buy" type="button">Buy Now</button>
+                {% endif %}
+            </div>
+    </div>
+    <script>
+        function changee(filename){
+            let im = document.querySelector('.mimg');
+            im.setAttribute("src",filename);
+        }
+        function opensize(){
+            document.getElementById('size').style.display='block';
+        }
+        function closesize(){
+            document.getElementById('size').style.display='none';
+        }
+    </script>

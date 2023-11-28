@@ -1,0 +1,16 @@
+{% extends 'homepage/basic.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="storybody">
+        {% for s in story %}
+            <img class="storyimage" src="{{ s.imageURL }}" alt="">
+            <section><p class="storyhead">{{ s.story_title }}</p></section>
+            <section class="storycontain">
+                {{ s.story_content }}
+            </section>
+        {% endfor %}
+    </div>
+
+{% endblock %}

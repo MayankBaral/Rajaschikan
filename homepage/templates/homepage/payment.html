@@ -1,0 +1,31 @@
+{% extends 'homepage/basic.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="formuser">
+    <div class="formbox2">
+      <h2 class="signhead">Payment Option</h2>
+      <form method="POST" class="customformpayment">
+        {% csrf_token %} 
+
+            {{ p_form.payment_method.label_tag }}
+            <div class="form-check">
+                {{ p_form.payment_method }}
+                {{ p_form.payment_method.errors }}
+            </div>
+          
+          <div class="btncontainer">
+            <button class="registerbt" type="submit">Place Order</button>
+            <a class="registerbt" href="{% url 'delete' order.orderId %}" onclick="clearcartstorage()">cancel Order</a>
+          </div>
+      </form>
+    </div>
+</div>
+<script>
+  function clearcartstorage(){
+    localStorage.clear();
+    location.reload();
+  }
+</script>
+{% endblock %}

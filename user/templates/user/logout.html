@@ -1,0 +1,12 @@
+{% extends 'homepage/basic.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}  
+
+    <div class="logout">
+        <h2 class="headlogout">Visit Again!!</h2>
+        <a href="{% url 'login' %}" class="loginlink2"><p class="loginlink">Login.....</p></a>
+    </div>
+
+{% endblock %}

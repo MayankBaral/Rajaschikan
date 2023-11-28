@@ -1,0 +1,189 @@
+<!--
+    THIS IS THE BASIC BODY OF EVERY PAGE IN THE SITE WHICH WILL INCLUDE BODY CSS AND NAVBAR AND FOOTER
+-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'homepage/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'homepage/mains.css' %}"> 
+    <link rel="stylesheet" href="{% static 'homepage/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'homepage/bestseller.css' %}">
+    <link rel="stylesheet" href="{% static 'homepage/category.css' %}">
+    <link rel="stylesheet" href="{% static 'homepage/about.css' %}">
+    <link rel="stylesheet" href="{% static 'homepage/sign.css' %}">
+    <link rel="stylesheet" href="{% static 'homepage/suitpage.css' %}">
+    <link rel="stylesheet" href="{% static 'homepage/mainproduct.css' %}">
+    <link rel="stylesheet" href="{% static 'homepage/checkoutpage.css' %}">
+    <link rel="stylesheet" href="{% static 'homepage/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'homepage/profilepage.css' %}">
+    <link rel="stylesheet" href="{% static 'homepage/logout.css' %}">
+    <link rel="stylesheet" href="{% static 'homepage/login.css' %}">
+    <link rel="stylesheet" href="{% static 'homepage/payment.css' %}">
+    <link rel="stylesheet" href="{% static 'homepage/story.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Inknut Antiqua' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="{% static 'jquery-3.7.1.min.js' %}"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!--THIS IS THE NAVBAR-->
+    <header class="header">
+        <nav class="nav">
+            <div class="rajas"><a href="{% url 'home' %}"><img class="logoimg" src="{% static 'homepage/images/blacklogo.png' %}" alt=""></a></div>
+            <ul class="navmenu">
+                <div class="navitem1">
+                    <li class="navitem"><a href="{% url 'prodsuit' %}" class="navlink">SUITS</a></li>
+                    <li class="navitem"><a href="{% url 'prodsaree' %}" class="navlink">SAREE</a></li>
+                    <li class="navitem"><a href="{% url 'prodfabric' %}" class="navlink">FABRIC</a></li>
+                </div>
+                <div class="navitem2">
+                    <li class="navitem"><a href="{% url 'profile' %}" class="navlink"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                    <li class="navitem"><a href="{% url 'check_out' %}" class="navlink">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"> <span id="cart"></span></i></a>
+                    </li>
+                </div>
+            </ul>
+            <form action="{% url 'search' %}" method="get" class="searcharea">
+                <div><button class="searchbtn" type="submit">search</button></div>
+                <div class="search"><input name="search" id="search" class="searchbar" type="text" placeholder="search"></div>
+                <div class="magsearch">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+            </form>
+            <div class="ham">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
+    {% block content %} {% endblock %}
+
+    <div class="footerbody">
+        <div class="foothead"><hr><i class="fa fa-diamond d1" aria-hidden="true"></i><p class="head">Rajas</p><i class="fa fa-diamond d2" aria-hidden="true"></i><hr></div>
+        <div class="footcontain">
+            <hr class="vertical1">
+            <div class="col">
+                <ul>
+                    <li class="listhead">SHOP</li>
+                    <a href="{% url 'prodsaree' %}"><li class="content">Sarees</li></a>
+                    <a href="{% url 'prodsuit' %}"><li class="content">Suits</li></a>
+                    <a href="{% url 'prodfabric' %}"><li class="content">Fabrics</li></a>
+                </ul>
+            </div>
+            <div class="col">
+                <ul>
+                    <li class="listhead">INFORMATION</li>
+                    <a href="{% url 'story' %}"><li class="content">Our Story</li></a>
+                    <a href=""><li class="content">Contact Us</li></a>
+                    <a href=""><li class="content">Our Team</li></a>
+                </ul>
+            </div>
+            <div class="col">
+                <ul>
+                    <li class="listhead">POLICIES</li>
+                    <a href="{% url 'privacy' %}"><li class="content">Privacy Policy</li></a>
+                    <a href="{% url 'shipping' %}"><li class="content">Shipping and Delivery Policy</li></a>
+                    <a href="{% url 'termsandcondition' %}"><li class="content">Terms of Services</li></a>
+                    <a href="{% url 'cancel' %}"><li class="content">Cancellation, Refund and Return Policy</li></a>
+                    <a href="#"><li class="content">FAQs</li></a>
+                </ul>
+            </div>
+            <div class="col">
+                <ul>
+                    <li class="listhead">CUSTOMER CARE</li>
+                    <li class="content">+91-9827122201</li>
+                </ul>
+            </div>
+            <div class="col">
+                <ul>
+                    <li class="listhead">SOCIAL MEDIA</li>
+                    <a href=""><li class="content"><i class="fab fa-facebook-square" aria-hidden="true"></i></li></a>
+                    <a href=""><li class="content"><i class="fab fa-instagram" aria-hidden="true"></i></li></a>
+                </ul>
+            </div>
+            <hr class="vertical2">
+        </div>
+        <hr>
+    </div>
+
+    <script>
+        const navel=document.querySelector('.navmenu');
+        const hamel=document.querySelector('.ham');
+        const sear=document.querySelector('.magsearch');
+        const sea=document.querySelector('.search');
+        
+        sear.addEventListener('click',() =>{
+            sear.classList.toggle('sear--open');
+            sea.classList.toggle('sea--open');
+        });
+        
+        hamel.addEventListener('click',() =>{
+            navel.classList.toggle('nav--open');
+            hamel.classList.toggle('ham--open');
+        });
+        
+
+        if(localStorage.getItem('cart')==null){
+        var cart = {};
+        }
+        else{
+            cart = JSON.parse(localStorage.getItem('cart'));
+            document.getElementById('cart').innerHTML = Object.keys(cart).length; 
+        }
+        const cartbutton = document.getElementsByClassName('cart');
+            for(const btn of cartbutton){
+                btn.addEventListener("click", () => {
+                    var idstr = btn.id.toString();
+                    if(cart[idstr]!=undefined){
+                        quantity = cart[idstr][0]+1;
+                    }
+                    else{
+                        quantity = 1;
+                        names = document.getElementById('name'+idstr).innerHTML;
+                        prices = document.getElementById('price'+idstr).innerHTML;
+                        category = document.getElementById('category'+idstr).innerHTML;
+                        const selectedSize = document.querySelector('input[name="size"]:checked')?.value;
+                        let imageURLmain = btn.getAttribute('data-image-url');
+
+            // Store the image URL along with other data in local storage
+                        cart[idstr] = [quantity, names, prices, category, selectedSize, imageURLmain];
+                    }
+                    localStorage.setItem('cart',JSON.stringify(cart));
+                    document.getElementById('cart').innerHTML = Object.keys(cart).length;
+
+                    console.log(`Product ID: ${idstr}, Quantity: ${cart[idstr][0]}, Image URL: ${cart[idstr][3]}`);
+                })
+            };
+        const buybutton = document.getElementsByClassName('buy');
+            for(const btn of buybutton){
+                btn.addEventListener("click", () => {
+                    var idstr = btn.id.toString();
+                    if(cart[idstr]!=undefined){
+                        quantity = cart[idstr][0]+1;
+                    }
+                    else{
+                        quantity = 1;
+                        names = document.getElementById('name'+idstr).innerHTML;
+                        prices = document.getElementById('price'+idstr).innerHTML;
+                        category = document.getElementById('category'+idstr).innerHTML;
+                        const selectedSize = document.querySelector('input[name="size"]:checked')?.value;
+                        let imageURLmain = btn.getAttribute('data-image-url');
+
+            // Store the image URL along with other data in local storage
+                        cart[idstr] = [quantity, names, prices, category, selectedSize, imageURLmain];
+                    }
+                    localStorage.setItem('cart',JSON.stringify(cart));
+                    document.getElementById('cart').innerHTML = Object.keys(cart).length;
+                    window.location.href = '/check_out/';
+                    console.log(`Product ID: ${idstr}, Quantity: ${cart[idstr][0]}, Image URL: ${cart[idstr][3]}`);
+                })
+            };
+    </script>
+
+
+</body>
+</html>

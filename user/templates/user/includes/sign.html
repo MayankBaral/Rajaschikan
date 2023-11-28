@@ -1,0 +1,49 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<div class="formuser">
+  <div class="formbox2">
+    <h2 class="signhead">Create Your Account</h2>
+    <form method="post" class="customform">
+        {% csrf_token %} 
+        
+        {{ form|crispy }}
+  
+        <button class="registerbt" type="submit">Register</button>
+        <p class="loginlink">Already have an Account? <a href="{% url 'login' %}">Login Now!</a></p>
+    </form>
+  </div>
+</div>
+
+
+
+<!--
+  <label for="{{ form.first_name.id_for_label }}" class="custom-label">First Name *</label>
+          {{ form.first_name }}
+
+          <label for="{{ form.last_name.id_for_label }}" class="custom-label">Last Name *</label>
+          {{ form.last_name }}
+
+          <label for="{{ form.username.id_for_label }}" class="custom-label">Username *</label>
+          {{ form.username }}
+ 
+          <label for="{{ form.email.id_for_label }}" class="custom-label">Email *</label>
+          {{ form.email }}
+
+          <label for="{{ form.password1.id_for_label }}" class="custom-label">Password</label>
+          {{ form.password1 }}
+          <span class="passlist">
+            <ul>
+              <li>Your password must contain at least 8 characters.</li>
+              <li>Your password can't be entirely numeric.</li>
+            </ul>
+          </span>
+
+          <label for="{{ form.password2.id_for_label }}" class="custom-label">Confirm Password</label>
+          {{ form.password2 }}
+          <span class="passlist">
+            <ul>
+              <li>Enter the same password as before, for verification.</li>
+
+            </ul>
+          </span>
+-->

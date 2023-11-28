@@ -1,0 +1,22 @@
+{% extends 'homepage/basic.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="probody">
+    <div class="prodcon">
+        <div class="probod">
+            {% for product in allprod %} 
+                <a href="{% url 'product' product.productId %}"><div class="procard">
+                    <img id="img{{ product.prodcutId }}" class="proimage" src="{{ product.imageURLmain }}" alt="">
+                    <p id="name{{ product.productId }}" class="proname">{{ product.name }}</p></a>
+                    <p class="proprice">Rs. <span id="price{{ product.productId }}">{{ product.price }}</span></p>
+                    <p id="category{{ product.productId }}" class="procategory">Category: {{ product.category }}</p>
+                    <button id="{{ product.productId }}" class="btcart cart" type="button" data-image-url="{{ product.imageURLmain }}" >Add to Cart</button>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

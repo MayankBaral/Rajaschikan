@@ -1,0 +1,38 @@
+{% load static %}
+<div class="bestbody">
+    <h1 class="best_seller">BEST SELLER</h1>
+    <div class="card_body">
+        <div class="card_contain">
+            <button id="slide-left" class="slidebt" type="button"><i id="bticon" class="fa fa-arrow-left" aria-hidden="true"></i></button>
+            <div class="scroll_card">
+                {% for b in best %} 
+                    <a href="{% url 'product' b.product.productId %}"><div class="procard2">
+                        <img id="img{{ b.product.prodcutId }}" class="proimage" src="{{ b.product.imageURLmain }}" alt="">
+                        <p id="name{{ b.product.productId }}" class="proname">{{ b.product.name }}</p></a>
+                        <p class="proprice">Rs. <span id="price{{ b.product.productId }}">{{ b.product.price }}</span></p>
+                        <p id="category{{ b.product.productId }}" class="procategory">Category: {{ b.product.category }}</p>
+                        <button id="{{ b.product.productId }}" class="btcart cart" type="button" data-image-url="{{ b.product.imageURLmain }}" >Add to Cart</button>
+                    </div>
+                {% endfor %}
+            </div>
+            <button id="slide-right" class="slidebt" type="button"><i id="bticon" class="fa fa-arrow-right" aria-hidden="true"></i></button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let  scrollcon = document.querySelector('.scroll_card');
+    let butleft = document.getElementById('slide-left');
+    let butright = document.getElementById('slide-right');
+
+    butleft.addEventListener('click', () => {
+        scrollcon.style.scrollBehavior = 'smooth';
+        scrollcon.scrollLeft -= 700;
+    });
+
+    butright.addEventListener('click', () => {
+        scrollcon.style.scrollBehavior = 'smooth';
+        scrollcon.scrollLeft += 700;
+    });
+
+</script>
