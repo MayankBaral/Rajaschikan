@@ -80,10 +80,11 @@ WSGI_APPLICATION = 'Rajaschikan.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Rajas',
-        'USER': 'postgres',
-        'PASSWORD': 'mayank26',
-        'HOST': 'localhost'
+        'NAME': 'rajas',
+        'USER': 'rajaschikan',
+        'PASSWORD': 'rajas2024',
+        'HOST': 'database-1.cnwawmkwku4x.ap-southeast-2.rds.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
