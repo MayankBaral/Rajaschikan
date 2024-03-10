@@ -12,15 +12,9 @@ from user.forms import UserShipping,PaymentForm
 import json
 from django.db import transaction 
 from django.conf import settings
-from instamojo_wrapper import Instamojo
+
 from django.views.decorators.csrf import csrf_protect
  
-api = Instamojo(api_key=settings.API_KEY,
-                auth_token=settings.AUTH_TOKEN,
-                endpoint='https://www.instamojo.com/api/1.1/',
-                )
-print(api.api_key)
-print(api.auth_token)
 
 def basic(request):
     template = loader.get_template('homepage/basic.html')
@@ -85,7 +79,7 @@ def checkout(request):
         if s_form.is_valid():
             # Save shipping details to the order
             total=request.POST['total']
-            print(f'Total from request: {total}')
+
             order = Order.objects.create(
                 customer=request.user.userprofile,
                 contact_number=s_form.cleaned_data['contact_number'],
@@ -95,7 +89,6 @@ def checkout(request):
                 zipcode=s_form.cleaned_data['zipcode'],
                 total=total
             )
-            print(f'Total in Order instance: {order.total}')
 
             # Save order items
             cart = json.loads(request.POST.get('cart_data', '{}'))
@@ -144,20 +137,38 @@ def product(request,productId):
 
 @csrf_protect
 def payment(request,order_id):
-    order = Order.objects.get(orderId=order_id)
-    user = User.objects.get(id=request.user.id) 
-
+    order = get_object_or_404(Order,orderId=order_id)
+    #user = User.objects.get(id=request.user.id) 
     if request.method == 'POST':
         p_form = PaymentForm(request.POST, instance=order)
         if p_form.is_valid():
-            p_form.save()
+            payment_method = p_form.cleaned_data.get('payment_method')
+            if(payment_method=='pay_online'):
+                return redirect('sorry',order_id=order.orderId)
+            else:
+                p_form.save()
+                return redirect('success',order_id=order.orderId)
     else:
         p_form = PaymentForm(instance=order)
 
+    
     context = {'p_form': p_form,'order':order,'order_id': order.orderId}
     template1 = loader.get_template('homepage/payment.html')
     return render(request,'homepage/payment.html',context)
 
+def successorder(request,order_id):
+    order = get_object_or_404(Order,orderId=order_id)
+
+    context = {'order': order}
+    template1 = loader.get_template('homepage/success.html')
+    return render(request,'homepage/success.html',context)
+
+def sorrymsg(request,order_id):
+    order = get_object_or_404(Order,orderId=order_id)
+
+    context = {'order': order}
+    template1 = loader.get_template('homepage/sorry.html')
+    return render(request,'homepage/sorry.html',context)
 
 def deleteorder(request,order_id):
     order = get_object_or_404(Order,orderId=order_id)

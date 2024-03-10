@@ -1,0 +1,13 @@
+{% extends 'homepage/basic.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="success">
+        <h1>Order succefull</h1>
+        <div class="details">
+            <p>Order ID: {{ order.orderId }}</p>
+            <p>Total Amount: {{ order.get_cart_total|stringformat:"d" }}</p>
+            <p>Payment Method: {{ order.payment_method }}</p>
+        </div>
+    </div>
+{% endblock %}

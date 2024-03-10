@@ -54,6 +54,13 @@
     justify-content: space-evenly;
     gap: 20px;
     font-size: 22px;
+    align-items: center;
+    margin-inline: 14px;
+}
+#cart{
+    position: absolute;
+    top: 8px;
+    font-size: 18px;
 }
 a{
     color: rgb(255, 255, 255);
@@ -138,6 +145,7 @@ a{
         flex-direction: column;
         align-items: center;
         gap: 20px;
+        margin-right: -5rem;
     }
     .navitem2{
         width: fit-content;
@@ -145,6 +153,11 @@ a{
         flex-direction: column;
         align-items: center;
         gap: 20px;
+    }
+    #cart{
+        position: absolute;
+        top: 42px;
+        font-size: 18px;
     }
     .search{
         display: none;

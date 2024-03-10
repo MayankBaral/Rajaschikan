@@ -108,8 +108,8 @@ class Bestseller(models.Model):
 
 
 PAYMENT_CHOICES = [
-    ('cash_on_delivery', 'Cash on Delivery'),
-    ('pay_online', 'Pay Online'),
+    ( 'Cash on Delivery','cash_on_delivery'),
+    ('Pay Online','pay_online'),
 ]
 
 ORDER_STATUS_CHOICES = [
@@ -146,7 +146,7 @@ class Order(models.Model):
     @property 
     def get_cart_total(self):
         orderitems = self.orderitems_set.all()
-        total_amount = sum([item.get_item_total() for item in orderitems])
+        total_amount = sum([item.get_item_total for item in orderitems])
         return total_amount
 
 

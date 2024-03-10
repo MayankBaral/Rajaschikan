@@ -1,0 +1,62 @@
+.sorrymsg{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 30vw;
+    margin-top: 5rem;
+    gap: 2rem;
+}
+.sorrymsg h1{
+    text-align: center;
+    font-size: 4rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+.sorrymsg a{
+    display: flex;
+    justify-content: center;
+}
+.sorrymsg h2{
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+
+.success{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 30vw;
+    margin-top: 5rem;
+    gap: 2rem;
+    
+}
+.success h1{
+    text-align: center;
+    font-size: 4rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    background-color: antiquewhite;
+    padding: 10px 20px;
+    box-shadow: 5px 5px 5px darkgray;
+}
+.success .details{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.success .details p{
+    width: fit-content;
+    text-align: left;
+    font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    background-color: antiquewhite;
+    padding: 10px 20px;
+    box-shadow: 5px 5px 5px darkgray;
+}

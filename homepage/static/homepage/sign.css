@@ -66,6 +66,9 @@
     color: white;
     font-weight: bold;
     cursor: pointer;
+    text-align: center;
+    font-family: sans-serif;
+    box-shadow: 5px 5px 8px darkgray;
 }
 @media screen and (max-width: 700px) {
     .customform{

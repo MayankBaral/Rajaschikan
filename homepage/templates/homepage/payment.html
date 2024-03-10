@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class="formuser">
+<div class="formuser2">
     <div class="formbox2">
       <h2 class="signhead">Payment Option</h2>
       <form method="POST" class="customformpayment">
@@ -16,8 +16,8 @@
             </div>
           
           <div class="btncontainer">
-            <button class="registerbt" type="submit">Place Order</button>
-            <a class="registerbt" href="{% url 'delete' order.orderId %}" onclick="clearcartstorage()">cancel Order</a>
+            <button class="registerbt" type="submit" onclick="clearcartstorage()">Place Order</button>
+            <a class="registerbt" href="{% url 'delete' order.orderId %}" onclick="clearcartstorage()">Cancel Order</a>
           </div>
       </form>
     </div>

@@ -1,3 +1,12 @@
+.formuser2{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    top: 3vh;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15rem;
+}
 .customformpayment{
     display: flex;
     flex-direction: column;
