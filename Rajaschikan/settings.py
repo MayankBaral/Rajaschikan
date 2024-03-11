@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -108,9 +109,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -121,20 +119,10 @@ USE_TZ = True
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
 MEDIA_URL = '/media/'
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
-
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'homepage/static')
-]
+STATIC_URL = 'https://rajaschikan.s3.amazonaws.com/static/'
 
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -147,9 +135,39 @@ LOGIN_REDIRECT_URL = 'home'
 
 LOGIN_URL = 'login'
 
-API_KEY = "7bfacf56612411b9e8ca5e427d77fc58"
+AWS_ACCESS_KEY_ID = 'AKIA2UC3AJQYB7MZ45MH'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'rajaschikan'
 
-AUTH_TOKEN = "93d091004b64da3afaf6fa2288aa9d4e"
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
 
-SALT = "8fd864ab35314d67a1b8bd439e516807"
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+    },
+    "staticfiles": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+    },
+}
 
+
+#STATIC_ROOT = os.path.join(BASE_DIR,'static')
+
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR,'homepage/static')
+#]
+
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
+#DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
+#STATICFILES_STORAGE = "storages.backends.s3.S3Storage"
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.2/howto/static-files/
+
+
+# Internationalization
+# https://docs.djangoproject.com/en/4.2/topics/i18n/
