@@ -51,21 +51,21 @@ def mains(request):
 
 def prodsaree(request):
     best = Saree.objects.all()
-    banner = Bannerimg.objects.get(imgid=2)
+    banner = Bannerimg.objects.get(imgid=5)
     para={'best':best,'banner':banner}
     template = loader.get_template('homepage/prodsaree.html')
     return render(request,'homepage/prodsaree.html',para)
 
 def prodsuit(request):
     best = Kurti.objects.all()
-    banner = Bannerimg.objects.get(imgid=1)
+    banner = Bannerimg.objects.get(imgid=4)
     para={'best':best,'banner':banner}
     template = loader.get_template('homepage/prodsuit.html')
     return render(request,'homepage/prodsuit.html',para)
 
 def prodfabric(request):
     best = Fabric.objects.all()
-    banner = Bannerimg.objects.get(imgid=3)
+    banner = Bannerimg.objects.get(imgid=6)
     para={'best':best,'banner':banner}
     template = loader.get_template('homepage/prodfabric.html')
     return render(request,'homepage/prodfabric.html',para)
