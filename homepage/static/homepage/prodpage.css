@@ -138,4 +138,7 @@
     .proname{
         font-size: 20px;
     }
+    .procard{
+        transition: none;
+    }
 }

@@ -60,3 +60,34 @@
     padding: 10px 20px;
     box-shadow: 5px 5px 5px darkgray;
 }
+
+@media screen and (max-width: 1000px) {
+    .sorrymsg{
+        height: fit-content;
+        margin-bottom: 6rem;
+        align-items: center;
+    }
+    .sorrymsg h1{
+        font-size: 2.6rem;
+    }
+    .sorrymsg h2{
+        font-size: 1.5rem;
+    }
+    .sorrymsg a{
+        width: 90%;
+    }
+    .sorrymsg img{
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+    .success{
+        margin-bottom: 30rem;
+    }
+    .success h1{
+        width: 90%;
+    }
+    .success .details{
+        width: 80%;
+    }
+}
