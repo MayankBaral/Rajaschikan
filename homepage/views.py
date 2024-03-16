@@ -143,9 +143,9 @@ def payment(request,order_id):
         p_form = PaymentForm(request.POST, instance=order)
         if p_form.is_valid():
             payment_method = p_form.cleaned_data.get('payment_method')
-            if(payment_method=='pay_online'or'Pay Online'):
+            if payment_method in ['pay_online', 'Pay Online']:
                 return redirect('sorry',order_id=order.orderId)
-            else:
+            elif payment_method in ['cash_on_delivery', 'Cash on Delivery']:
                 p_form.save()
                 return redirect('success',order_id=order.orderId)
     else:
