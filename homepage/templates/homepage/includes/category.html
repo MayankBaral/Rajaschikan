@@ -5,15 +5,15 @@
         <div class="category">CATEGORY</div>
         <div class="catscroll">
             <div class="cate">
-                <a class="cate" href="{% url 'prodsuit' %}"><div class="imcat"><img class="imca" src="{{ cat_id.0.cat_image.url }}" alt=""></div>
+                <a class="cate" href="{% url 'prodsuit' %}"><div class="imcat"><img class="imca" src="{{ cat.cat_id.0.cat_image.url }}" alt=""></div>
                 <button class="catbt" type="button">KURTIS</button></a>
             </div>
             <div class="cate">
-                <a class="cate" href="{% url 'prodsaree' %}"><div class="imcat"><img class="imca" src="{{ cat_id.1.cat_image.url }}" alt=""></div>
+                <a class="cate" href="{% url 'prodsaree' %}"><div class="imcat"><img class="imca" src="{{ cat.cat_id.1.cat_image.url }}" alt=""></div>
                 <button class="catbt" type="button">SAREE</button></a>
             </div>
             <div class="cate">
-                <a class="cate" href="{% url 'prodfabric' %}"><div class="imcat"><img class="imca" src="{{ cat_id.2.cat_image.url }}" alt=""></div>
+                <a class="cate" href="{% url 'prodfabric' %}"><div class="imcat"><img class="imca" src="{{ cat.cat_id.2.cat_image.url }}" alt=""></div>
                 <button class="catbt" type="button">FABRICS</button></a>
             </div>
         </div>
