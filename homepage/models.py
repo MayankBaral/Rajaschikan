@@ -17,7 +17,7 @@ class Category(models.Model):
     cat_image = models.ImageField(upload_to='media')
 
     def __str__(self):
-        return self.cat_name and self.cat_id
+        return self.cat_id
 
 CATEGORY_CHOICES = [
     ('Fabric','fabric'),
