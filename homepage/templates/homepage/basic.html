@@ -36,7 +36,7 @@
             <div class="rajas"><a href="{% url 'home' %}"><img class="logoimg" src="{% static 'homepage/images/blacklogo.png' %}" alt=""></a></div>
             <ul class="navmenu">
                 <div class="navitem1">
-                    <li class="navitem"><a href="{% url 'prodsuit' %}" class="navlink">SUITS</a></li>
+                    <li class="navitem"><a href="{% url 'prodsuit' %}" class="navlink">KURTIS</a></li>
                     <li class="navitem"><a href="{% url 'prodsaree' %}" class="navlink">SAREE</a></li>
                     <li class="navitem"><a href="{% url 'prodfabric' %}" class="navlink">FABRIC</a></li>
                 </div>
@@ -71,7 +71,7 @@
                 <ul>
                     <li class="listhead">SHOP</li>
                     <a href="{% url 'prodsaree' %}"><li class="content">Sarees</li></a>
-                    <a href="{% url 'prodsuit' %}"><li class="content">Suits</li></a>
+                    <a href="{% url 'prodsuit' %}"><li class="content">Kurtis</li></a>
                     <a href="{% url 'prodfabric' %}"><li class="content">Fabrics</li></a>
                 </ul>
             </div>
@@ -130,7 +130,7 @@
         
 
         if(localStorage.getItem('cart')==null){
-        var cart = {};
+            var cart = {};
         }
         else{
             cart = JSON.parse(localStorage.getItem('cart'));
