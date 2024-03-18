@@ -12,7 +12,7 @@ class blog_card(models.Model):
         return self.blog_title
     
 class Category(models.Model):
-    cat_id = models.AutoField
+    cat_id = models.AutoField(primary_key=True)
     cat_name = models.CharField(max_length=20)
     cat_image = models.ImageField(upload_to='media')
 
