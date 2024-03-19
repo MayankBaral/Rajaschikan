@@ -18,10 +18,11 @@
     padding: 0 10px;
 }
 .rajas{
-    width: 80px;
+    width: 115px;
     height: 100%;
     position: relative;
     left: 3%;
+    padding: 12px;
 }
 .logoimg{
     width: 67%;
