@@ -38,7 +38,9 @@
     width: 50%;
     height: 88%;
     position: relative;
-    left: 5%;
+    left: 11%;
+    bottom: 10%;
+    object-fit: scale-down;
 }
 .abtext{
     position: relative;
