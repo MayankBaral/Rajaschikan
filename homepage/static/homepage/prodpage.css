@@ -34,6 +34,7 @@
     height: 380px;
 }
 .proname{
+    width: 17rem;
     font-size: 25px;
     font-weight: bold;
     padding-bottom: 5px;
