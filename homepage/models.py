@@ -4,8 +4,8 @@ from multiselectfield import MultiSelectField
 # Create your models here.
 class blog_card(models.Model):
     blog_id = models.AutoField
-    blog_title = models.CharField(max_length=100, default='Lucknow')
-    blog_desc = models.CharField(max_length=20, default=' ')
+    blog_title = models.CharField(max_length=1000, default='Lucknow')
+    blog_desc = models.CharField(max_length=1000, default=' ')
     blog_image = models.ImageField(upload_to='media',default='')
 
     def __str__(self):
@@ -13,7 +13,7 @@ class blog_card(models.Model):
     
 class Category(models.Model):
     cat_id = models.AutoField
-    cat_name = models.CharField(max_length=20)
+    cat_name = models.CharField(max_length=1000)
     cat_image = models.ImageField(upload_to='media')
 
     def __str__(self):
@@ -26,21 +26,21 @@ CATEGORY_CHOICES = [
 ]   
 class Product(models.Model):
     productId = models.CharField(unique=True,primary_key=True,max_length=20)
-    name = models.CharField(max_length=20, null=True)
+    name = models.CharField(max_length=1000, null=True)
     price = models.IntegerField(null=True)
-    category = models.CharField(max_length=50,choices=CATEGORY_CHOICES)
+    category = models.CharField(max_length=1000,choices=CATEGORY_CHOICES)
     main_image = models.ImageField(upload_to='media')
     img1 = models.ImageField(upload_to='media',null=True)
     img2 = models.ImageField(upload_to='media',null=True)
     img3 = models.ImageField(upload_to='media',null=True)
-    color = models.CharField(max_length=20,null=True,default=' ')
-    fabrics = models.CharField(max_length=20,null=True,blank=True)
-    embroidery = models.CharField(max_length=20,null=True,blank=True)
-    embroidery_color = models.CharField(max_length=20,null=True,blank=True)
-    washing_instrutions = models.CharField(max_length=100, null=True, blank=True)
-    dyeing = models.CharField(max_length=50,null=True,blank=True)
-    product_description = models.CharField(max_length=200,null=True,blank=True)
-    keywords = models.CharField(max_length=100,null=True)
+    color = models.CharField(max_length=1000,null=True,default=' ')
+    fabrics = models.CharField(max_length=1000,null=True,blank=True)
+    embroidery = models.CharField(max_length=1000,null=True,blank=True)
+    embroidery_color = models.CharField(max_length=1000,null=True,blank=True)
+    washing_instrutions = models.CharField(max_length=1000, null=True, blank=True)
+    dyeing = models.CharField(max_length=1000,null=True,blank=True)
+    product_description = models.CharField(max_length=5000,null=True,blank=True)
+    keywords = models.CharField(max_length=1000,null=True)
     in_stock = models.BooleanField(default=False)
 
     def __str__(self):
@@ -80,21 +80,21 @@ class Product(models.Model):
 
 class Kurti(models.Model):
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
-    available_sizes = models.CharField(max_length=50, blank=True, null=True)
+    available_sizes = models.CharField(max_length=500, blank=True, null=True)
 
     def __str__(self):
         return self.product.name
     
 class Saree(models.Model):
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
-    available_sizes = models.CharField(max_length=50, blank=True, null=True)
+    available_sizes = models.CharField(max_length=500, blank=True, null=True)
 
     def __str__(self):
         return self.product.name
 
 class Fabric(models.Model):
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
-    available_sizes = models.CharField(max_length=50, blank=True, null=True)
+    available_sizes = models.CharField(max_length=1000, blank=True, null=True)
     
     def __str__(self):
         return self.product.name
@@ -131,7 +131,7 @@ class Order(models.Model):
     zipcode = models.CharField(max_length=6,null=True)
     
     payment_method = models.CharField(max_length=20, choices=PAYMENT_CHOICES)
-    order_status = models.CharField(max_length=20, choices=ORDER_STATUS_CHOICES, default='created')
+    order_status = models.CharField(max_length=100, choices=ORDER_STATUS_CHOICES, default='created')
 
     tracking_company = models.CharField(max_length=100,null=True)
     tracking_Id = models.CharField(max_length=100,null=True)
@@ -154,7 +154,7 @@ class OrderItems(models.Model):
     product = models.ForeignKey(Product,on_delete=models.SET_NULL,null=True)
     order = models.ForeignKey(Order,on_delete=models.SET_NULL,null=True)
     quantity =  models.IntegerField(default=0, null=True)
-    size_selected = models.CharField(max_length=20,default="",null=True)
+    size_selected = models.CharField(max_length=1000,default="",null=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
     @property
@@ -176,7 +176,7 @@ class Bannerimg(models.Model):
         return url
     
 class StoryContent(models.Model):
-    story_title = models.CharField(max_length=20,null=True)
+    story_title = models.CharField(max_length=1000,null=True)
     story_content = models.TextField(max_length=5000,null=True)
     stroy_image = models.ImageField(upload_to='media',null=True)
 
@@ -193,7 +193,7 @@ class StoryContent(models.Model):
     
 
 class PrivacyPolicy(models.Model):
-    title = models.CharField(max_length=20,null=True)
+    title = models.CharField(max_length=1000,null=True)
     privacy_content = models.TextField(max_length=5000,null=True)
 
     def __str__(self):
@@ -201,24 +201,24 @@ class PrivacyPolicy(models.Model):
     
 
 class ShippingPolicy(models.Model):
-    title = models.CharField(max_length=20,null=True)
-    shipping_content = models.TextField(max_length=5000,null=True)
+    title = models.CharField(max_length=1000,null=True)
+    shipping_content = models.TextField(max_length=10000,null=True)
 
     def __str__(self):
         return self.title
     
 
 class TermsAndCondn(models.Model):
-    title = models.CharField(max_length=20,null=True)
-    terms_content = models.TextField(max_length=5000,null=True)
+    title = models.CharField(max_length=1000,null=True)
+    terms_content = models.TextField(max_length=10000,null=True)
 
     def __str__(self):
         return self.title
     
 
 class CancelRefund(models.Model):
-    title = models.CharField(max_length=50,null=True)
-    cancel_content = models.TextField(max_length=5000,null=True)
+    title = models.CharField(max_length=1000,null=True)
+    cancel_content = models.TextField(max_length=10000,null=True)
 
     def __str__(self):
         return self.title
